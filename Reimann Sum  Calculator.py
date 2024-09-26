@@ -17,7 +17,13 @@ delta_x = (b - a) / n
 x_values = [a + i * delta_x for i in range(n + 1)]
 f_values = [f(x) for x in x_values]
 
-# Trapezoidal Rule formula
+#Calculate Right Sum
+Right_sum = sum(f_values[1:])*delta_x
+
+#Calculate Left sum
+Left_sum = sum(f_values[0:len(f_values)-1])*delta_x
+
+# Trapezoidal Rule 
 Trapezoid_Rule = (delta_x / 2) * (f_values[0] + 2 * sum(f_values[1:-1]) + f_values[-1])
 
 
@@ -36,8 +42,8 @@ simpson_sum = (f(x_values[0]) +
 simpson_estimate = (delta_x / 3) * simpson_sum
 
 
-
-
+print("The right sum is :", Right_sum)
+print("The left sum is", Left_sum)
 print("The trapezoid rule sum is :", Trapezoid_Rule)
 print("The midpoint estimate is", midpoint_estimate)
 print("The simpson estimate is", simpson_estimate)
